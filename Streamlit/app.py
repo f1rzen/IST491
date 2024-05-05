@@ -40,7 +40,6 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-        .main {background-color: #F5F5F5;}
     </style>
     """,
     unsafe_allow_html=True
@@ -57,10 +56,7 @@ menu = option_menu(
     orientation="horizontal",
     default_index=0,
     styles={
-        "container": {
-            "background-color": "#ebebeb",
-            "border-radius": "0px",
-            },
+        "container": {},
         "icon": {}, 
         "nav-link": {
             "font-size": "15px",
