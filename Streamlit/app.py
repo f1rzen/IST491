@@ -69,3 +69,19 @@ menu = option_menu(
             },
     }
 )
+
+if menu == "Home":
+    from Pages import homepage
+    homepage.show_home_page()
+    
+elif menu == "Dataset":
+    from Pages import dataset
+    dataset.show_dataset_page()
+    
+elif menu == "Prediction":
+    from Pages import prediction
+    prediction.show_prediction_page()
+
+elif menu == "Contact":
+    from Pages import contact
+    contact.show_contact_page()
