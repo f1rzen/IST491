@@ -66,11 +66,11 @@ menu = option_menu(
 )
 
 # Load dataset
-df = pd.read_csv("Streamlit/Database/BaseDataframe.csv")
+df = pd.read_csv("Database/BaseDataframe.csv")
 df.drop(['index', 'Patient Id'], axis=1, inplace=True)
 
 # Modeli içe aktar
-with open('Streamlit/Model/logistic_regressor_model.pkl', 'rb') as file:
+with open('Model/logistic_regressor_model.pkl', 'rb') as file:
     lr_model = pickle.load(file)
 
 
