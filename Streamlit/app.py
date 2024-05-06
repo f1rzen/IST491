@@ -1,17 +1,12 @@
 # Data management
-import pandas as pd 
-import numpy as np
+import pandas as pd
 
 # Web application
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-# Data visualization
-import matplotlib.pyplot as plt
-import plotly.express as px
-import plotly.graph_objects as go
-
 # Operational tools
+import pickle
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -70,17 +65,26 @@ menu = option_menu(
     }
 )
 
+# Load dataset
+df = pd.read_csv("Database/BaseDataframe.csv")
+df.drop(['index', 'Patient Id'], axis=1, inplace=True)
+
+# Modeli içe aktar
+with open('Model/logistic_regressor_model.pkl', 'rb') as file:
+    lr_model = pickle.load(file)
+
+
 if menu == "Home":
     from Pages import homepage
     homepage.show_home_page()
     
 elif menu == "Dataset":
     from Pages import dataset
-    dataset.show_dataset_page()
+    dataset.show_dataset_page(df)
     
 elif menu == "Prediction":
     from Pages import prediction
-    prediction.show_prediction_page()
+    prediction.show_prediction_page(df, lr_model)
 
 elif menu == "Contact":
     from Pages import contact
