@@ -1,15 +1,9 @@
 # Data management
-import pandas as pd 
-import numpy as np
+import pandas as pd
 
 # Web application
 import streamlit as st
 from streamlit_option_menu import option_menu
-
-# Data visualization
-import matplotlib.pyplot as plt
-import plotly.express as px
-import plotly.graph_objects as go
 
 # Operational tools
 import pickle
@@ -72,7 +66,7 @@ menu = option_menu(
 )
 
 # Load dataset
-df = pd.read_csv("Streamlit/Database/cancer patient data sets.csv")
+df = pd.read_csv("Streamlit/Database/BaseDataframe.csv")
 df.drop(['index', 'Patient Id'], axis=1, inplace=True)
 
 # Modeli içe aktar
