@@ -28,7 +28,7 @@ st.set_page_config(
     page_title="Lung Cancer",
     page_icon="🫁",
     initial_sidebar_state="expanded",
-    layout="centered"
+    layout="wide"
 )
 
 # Web application CSS style over here
@@ -51,7 +51,10 @@ menu = option_menu(
     orientation="horizontal",
     default_index=0,
     styles={
-        "container": {},
+        "container": {
+            "width": "100vw",
+            "margin": 0,
+            },
         "icon": {}, 
         "nav-link": {
             "font-size": "15px",
