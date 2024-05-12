@@ -1,5 +1,9 @@
 # Web application
 import streamlit as st
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv('../Database/BaseDataframe.csv')
 def show_data_page():
     html_path="./DataPage/index.html"
     def get_data_page(html_path):
@@ -15,3 +19,4 @@ def show_data_page():
         """,
         unsafe_allow_html=True, 
     )
+    st.dataframe(df)
