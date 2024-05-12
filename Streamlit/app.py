@@ -28,7 +28,6 @@ st.set_page_config(
     page_title="Lung Cancer",
     page_icon="🫁",
     initial_sidebar_state="expanded",
-    layout="wide"
 )
 
 # Web application CSS style over here
@@ -83,7 +82,7 @@ if menu == "Home":
     
 elif menu == "Dataset":
     from Pages import dataset
-    dataset.show_dataset_page(df)
+    dataset.show_data_page()
     
 elif menu == "Prediction":
     from Pages import prediction
