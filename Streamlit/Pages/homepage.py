@@ -1,7 +1,6 @@
 import streamlit as st
 def show_home_page():
     html_path="./HomePage/index.html"
-
     def get_home_page(html_path):
         
         with open(html_path, 'r', encoding='utf-8') as f:
