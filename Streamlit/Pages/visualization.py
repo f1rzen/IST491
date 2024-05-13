@@ -16,7 +16,7 @@ def show_visualize_page():
     with col1:
         plot_type = st.selectbox("Select a type of plot", ["Histogram", "Pie chart", "Violin plot"])
     with col2:
-        feature = st.selectbox("Select a feature for histogram", data.columns)
+        feature = st.selectbox("Select a feature:", data.columns)
     col3, col4 = st.columns(2)
     with col3:
         if plot_type == 'Histogram':
