@@ -71,11 +71,6 @@ menu = option_menu(
 df = pd.read_csv("Database/BaseDataframe.csv")
 df.drop(['index', 'Patient Id'], axis=1, inplace=True)
 
-# Modeli içe aktar
-with open('Model/logistic_regressor_model.pkl', 'rb') as file:
-    lr_model = pickle.load(file)
-
-
 if menu == "Home":
     from Pages import homepage
     homepage.show_home_page()
@@ -85,8 +80,16 @@ elif menu == "Dataset":
     dataset.show_data_page()
     
 elif menu == "Prediction":
+    # Modeli içe aktar
+    with open('Model/theModel.pkl', 'rb') as file:
+        model = pickle.load(file)
+
+    # Label encoder'ı içeri aktar
+    with open('Encoders/encoder.pkl', 'rb') as file:
+        encoder = pickle.load(file)
+    
     from Pages import prediction
-    prediction.show_prediction_page(df, lr_model)
+    prediction.show_prediction_page(df, model, encoder)
 
 elif menu == "Contact":
     from Pages import contact
