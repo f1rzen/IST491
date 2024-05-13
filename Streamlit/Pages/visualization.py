@@ -1,10 +1,10 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import seaborn as sns
 import matplotlib.pyplot as plt
+import plotly.express as px
 
-@st.cache
+@st.cache_data
 def load_data():
     data = pd.read_csv("../Database/BaseDataframe.csv")
     return data
@@ -12,24 +12,31 @@ def load_data():
 data = load_data()
 def show_visualize_page():
     st.header("Visualizations")
+    col1,col2 = st.columns(2)
+    with col1:
+        plot_type = st.selectbox("Select a type of plot", ["Histogram", "Pie chart", "Violin plot"])
+    with col2:
+        feature = st.selectbox("Select a feature for histogram", data.columns)
+    col3, col4 = st.columns(2)
+    with col3:
+        if plot_type == 'Histogram':
+            bins = st.slider("Number of bins", 5, 50, 25)
+            fig = px.histogram(data, x=feature, nbins=bins)
+            st.plotly_chart(fig)
+        elif plot_type == 'Pie chart':
+            fig = px.pie(data, names=feature)
+            st.plotly_chart(fig)
+        elif plot_type == 'Violin plot':
+            fig = px.violin(data, y=feature)
+            st.plotly_chart(fig)
+            
 
-    plot_type = st.selectbox("Select a type of plot", ["Histogram", "Pie chart", "Box plot"])
+    st.write("Summary Statistics")
+    desc = data[feature].describe().to_frame()
+    st.write(desc.transpose())
 
-    if plot_type == 'Histogram':
-        feature = st.sidebar.selectbox("Select a feature for histogram", data.columns)
-        bins = st.sidebar.slider("Number of bins", 5, 50, 25)
-        st.write(sns.histplot(data[feature], bins=bins))
-        st.pyplot()
-
-    elif plot_type == 'Pie chart':
-        feature = st.sidebar.selectbox("Select a feature for pie chart", data.columns)
-        st.write(data[feature].value_counts().plot.pie(autopct="%1.1f%%"))
-        st.pyplot()
-
-    elif plot_type == 'Box plot':
-        feature = st.sidebar.selectbox("Select a feature for box plot", data.columns)
-        st.write(sns.boxplot(x=data[feature]))
-        st.pyplot()
+    
+    
 
 
 
