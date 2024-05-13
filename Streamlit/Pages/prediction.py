@@ -291,6 +291,8 @@ def show_prediction_page(df, model, encoder):
         result_dataframe = temp_dataframe.copy()
         result_dataframe['Prediction'] = prediction
         
+        st.toast("New Prediction Performed", icon="🚀")
+        
         container.markdown(
             f"""
             <article>Cancer Risk Level
