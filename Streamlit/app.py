@@ -45,8 +45,8 @@ st.markdown('<span style="color:gray">This app predicts the lung cancer level of
 # Menu selection
 menu = option_menu(
     menu_title=None,
-    options=["Home", "Dataset", "Prediction", "Contact"],
-    icons=["window", "database", "cpu", "envelope"],
+    options=["Home", "Dataset", "Prediction", "Visualize", "Contact"],
+    icons=["window", "database", "cpu", "graph-up", "envelope"],
     orientation="horizontal",
     default_index=0,
     styles={
@@ -94,3 +94,6 @@ elif menu == "Prediction":
 elif menu == "Contact":
     from Pages import contact
     contact.show_contact_page()
+elif menu == "Visualize":
+    from Pages import visualization
+    visualization.show_visualize_page()
