@@ -18,6 +18,27 @@ The prediction script includes machine learning models to predict the risk of lu
 
 The Streamlit web application allows users to interact with the dataset and the models in a user-friendly interface. Users can input their information and get a risk prediction for lung cancer.
 
+![Homepage](./Images/homepage.png)
+
+<div style="align:center;">
+<details>
+    <summary style="align:center;">
+            <b>👉 Expand for Other Web Application Screenshots</b>
+    </summary>
+
+![Dataset](./Images/dataset.png)
+
+![Prediction-1](./Images/prediction-1.png)
+
+![Prediction-2](./Images/prediction-2.png)
+
+![Visualization](./Images/visualization.png)
+
+![Contact](./Images/contact.png)
+
+</details>
+</div>
+
 ## Usage
 
 To use this repository, clone it and run the Jupyter notebooks for EDA and prediction. To use the Streamlit web application, navigate to the application directory and run the Streamlit command.
