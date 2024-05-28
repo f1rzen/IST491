@@ -27,7 +27,7 @@ warnings.filterwarnings("ignore")
 st.set_page_config(
     page_title="Lung Cancer",
     page_icon="🫁",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="collapsed",
 )
 
 # Web application CSS style over here
